@@ -5,11 +5,11 @@ const https = require('https')
 let application = fs.readFileSync('./application.yml', 'utf8')
 
 if (process.env.PORT) {
-    application = application.replace('DYNAMICPORT', process.env.PORT)
+    application = application.replace('DYNAMICPORT', 50313)
 }
 
 if (process.env.PASS) {
-    application = application.replace('youshallnotpass', process.env.PASS)
+    application = application.replace('youshallnotpass', "youshallnotpass")
 }
 fs.writeFileSync('./application.yml', application)
 
@@ -66,7 +66,7 @@ function keepAlive() {
 
     let count = 0;
     setInterval(() =>
-        fetch(`http://${process.env.APP_NAME}/`, { headers: { Authorization: process.env.PASS } })
+        fetch(`http://heyy.oh/`, { headers: { Authorization: "youshallnotpass" } })
             .then(() => console.log(`[${++count}] Kept server alive.`))
             .catch(() => console.log(`Failed to keep server alive.`))
         , 1 * 60 * 1000);
