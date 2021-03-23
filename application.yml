@@ -1,6 +1,6 @@
 server: # REST and WS server
   port: 50500
-  address: "ashour"
+  address: 0.0.0.0
 lavalink:
   server:
     password: "youshallnotpass"
